@@ -39,11 +39,11 @@ mkdir Pool.$i
 
 
 echo "Copying:"
-ls /Volumes/Diascia.Genomics/SA.Data/16651_pool$i_S*.gz | grep "pool$i\_"
+ls /data/dops-ngs-pipeline/dops0687/ARC.Transfer/16651_pool$i_S*.gz | grep "pool$i\_"
 echo "into directory Pool.$i"
-#ls /Volumes/Diascia.Genomics/SA.Data/16651_pool$i_S*.gz | grep "pool$i\_" > Pool.$i.Files.txt
+ls /data/dops-ngs-pipeline/dops0687/ARC.Transfer/16651_pool$i_S*.gz | grep "pool$i\_" > Pool.$i.Files.txt
 
-#cp -v $(<Pool.$i.Files.txt) Pool.$i
+cp -v $(<Pool.$i.Files.txt) Pool.$i
 
 #ls ./Pool.$i
 #
@@ -66,8 +66,8 @@ process_radtags -1 16651_pool$i_S*L007*R1_001.fastq.gz -2 16651_pool$i_S*L007*R2
 #
 
 
-mv *.rem.1.fq.gz /Volumes/Diascia.Genomics/SA.Data/Practice.Run/Rem.FQGZ
-
+mv *.rem.1.fq.gz /data/dops-ngs-pipeline/dops0687/ARC.Transfer/Rem.FQGZ
+mv *.rem.2.fq.gz /data/dops-ngs-pipeline/dops0687/ARC.Transfer/Rem.FQGZ
 
 
 for i in *1.fq.gz
@@ -88,7 +88,7 @@ done
 
 
 echo "Copying all newly created demultiplexed fq.gz and rem.fq.gz files into Demultiplexed.Sequences directory"
-cp *.fq.gz /Volumes/Diascia.Genomics/SA.Data/Practice.Run/Demultiplexed.Sequences
+cp *.fq.gz /data/dops-ngs-pipeline/dops0687/ARC.Transfer/Demultiplexed.Sequences
 #
 cd ..
 #

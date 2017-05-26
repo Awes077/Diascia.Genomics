@@ -20,5 +20,5 @@ cd ARC.Transfer
 bash Sort.And.Demultiplex.Pooled.FQGZ.Files.sh
 bash Trimmed.Reads.Direct.sh
 
-bash RefOpt.sh
-bash RefMapOpt.sh
+#bash RefOpt.sh
+#bash RefMapOpt.sh
