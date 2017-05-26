@@ -1,4 +1,4 @@
-#setwd("/Volumes/Diascia.Genomics/SA.Data/Practice.Run/Assembly.Test/Trimmed.Reads/Ref.Opt/")
+setwd("/Volumes/Diascia.Genomics/SA.Data/Practice.Run/Assembly.Test/Trimmed.Reads/Ref.Opt/")
 
 library(ggplot2)
 
