@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 
 # set max wallclock time
-#SBATCH --time=10:00:00
+#SBATCH --time=100:00:00
 
 # set name of job
 #SBATCH --job-name=testDemultiplexRefMapOpt
@@ -16,9 +16,11 @@
 #SBATCH --mail-user=awes077@gmail.com
 
 # run the application
-cd ARC.Transfer
+cd /data/dops-ngs-pipeline/dops0687/ARC.Transfer
+module load python/anaconda3
+source activate ddocent_env
 bash Sort.And.Demultiplex.Pooled.FQGZ.Files.sh
 bash Trimmed.Reads.Direct.sh
 
-bash RefOpt.sh
-bash RefMapOpt.sh
+#bash RefOpt.sh
+#bash RefMapOpt.sh
