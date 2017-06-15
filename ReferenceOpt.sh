@@ -146,7 +146,7 @@ if [[ "$ATYPE" == "PE" || "$ATYPE" == "RPE" ]]; then
 	seqtk seq -r ref.R.fq > ref.RC.fq
 	mv ref.RC.fq ref.R.fq
 	LENGTH=$(mawk '!/>/' rainbow.fasta | mawk '(NR==1||length<shortest){shortest=length} END {print shortest}')
-	LENGTH=$(($LENGTH * 5/4))
+	LENGTH=$(($LENGTH * 5 / 4 ))
 	
 	pear -f ref.F.fq -r ref.R.fq -o overlap -p 0.001 -j $NUMProc -n $LENGTH &>kopt.log
 
@@ -170,7 +170,7 @@ if [[ "$ATYPE" == "HYB" ]];then
 		cut -f2 uniq.k.$1.c.$2.ua.seqs > totaluniqseq.ua
 		mawk '{c= c + 1; print ">dDocent_Contig_" c "\n" $1}' totaluniqseq.ua > uniq.full.ua.fasta
 		LENGTH=$(mawk '!/>/' uniq.full.ua.fasta  | mawk '(NR==1||length<shortest){shortest=length} END {print shortest}')
-		LENGTH=$(($LENGTH * 3/4))
+		LENGTH=$(($LENGTH * 3 / 4))
 		gawk 'BEGIN {RS = ">" ; FS = "\n"} NR > 1 {print "@"$1"\n"$2"\n+""\n"gensub(/./, "I", "g", $2)}' uniq.full.ua.fasta > uniq.ua.fq
 		java -jar $TRIMMOMATIC SE -threads $NUMProc -phred33 uniq.ua.fq uniq.ua.fq1 ILLUMINACLIP:$ADAPTERS:2:30:10 MINLEN:$LENGTH &>/dev/null
 		mawk 'BEGIN{P=1}{if(P==1||P==2){gsub(/^[@]/,">");print}; if(P==4)P=0; P++}' uniq.ua.fq1 > uniq.ua.fasta
